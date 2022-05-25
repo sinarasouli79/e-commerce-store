@@ -11,7 +11,7 @@ from store import serializers
 @api_view()
 def product_list(request):
     queryset = Product.objects.all()
-    serializers = ProductSerializer(queryset, many=True)
+    serializer = ProductSerializer(queryset, many=True)
     return Response(serializers.data)
 
 @api_view()
