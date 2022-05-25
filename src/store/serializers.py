@@ -1,9 +1,11 @@
+from dataclasses import fields
 from rest_framework import serializers
-
-class ProductSerializer(serializers.Serializer):
-    id = serializers.IntegerField()
-    title = serializers.CharField(max_length=255)
-    description = serializers.CharField()
-    inventory = serializers.IntegerField()
-    price = serializers.DecimalField(max_digits=6, decimal_places=2)
-    last_update = serializers.DateTimeField()
+from .models import Product
+class ProductSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Product
+        fields = ['id', 'title', 'description', 'inventory', 'unit_price', 'last_update']
+    
+    unit_price = serializers.DecimalField(max_digits=6, decimal_places=2, source='price')
+    
