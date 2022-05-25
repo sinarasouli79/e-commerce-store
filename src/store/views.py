@@ -12,7 +12,7 @@ from store import serializers
 def product_list(request):
     queryset = Product.objects.all()
     serializer = ProductSerializer(queryset, many=True)
-    return Response(serializers.data)
+    return Response(serializer.data)
 
 @api_view()
 def product_detail(request, id):
