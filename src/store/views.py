@@ -1,19 +1,10 @@
-from rest_framework.generics import (ListCreateAPIView,
-                                     RetrieveUpdateDestroyAPIView)
-
+from rest_framework.viewsets import ModelViewSet
 from .models import Product
 from .serializers import ProductSerializer
 
 # Create your views here.
 
-
-class ProductList(ListCreateAPIView):
-
+class ProductViewset(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-
-class ProdcutDetail(RetrieveUpdateDestroyAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-    lookup_field = 'id'
