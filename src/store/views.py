@@ -1,5 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
-from .models import Product, Review
+from .models import Product, Reviews
 from .serializers import ProductSerializer, ReviewSerializer
 
 # Create your views here.
@@ -10,5 +10,6 @@ class ProductViewset(ModelViewSet):
 
 
 class ReviewViewset(ModelViewSet):
-    queryset = Review.objects.all()
+    queryset = Reviews.objects.all()
     serializer_class = ReviewSerializer
+

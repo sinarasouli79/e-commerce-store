@@ -1,6 +1,6 @@
 from dataclasses import fields
 from rest_framework import serializers
-from .models import Product, Review
+from .models import Product, Reviews
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -17,6 +17,6 @@ class ProductSerializer(serializers.ModelSerializer):
 class ReviewSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Review
+        model = Reviews
         fields = ['id', 'date', 'name', 'description', 'product',]
         
