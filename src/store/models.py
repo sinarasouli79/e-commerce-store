@@ -11,7 +11,7 @@ class Product(models.Model):
     inventory = models.PositiveIntegerField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     last_update = models.DateTimeField(auto_now=True)
-    collectoin = models.ForeignKey('Collection', on_delete=models.PROTECT)
+    collection = models.ForeignKey('Collection', on_delete=models.PROTECT)
 
 
 class Collection(models.Model):
